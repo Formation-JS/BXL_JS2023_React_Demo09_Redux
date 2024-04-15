@@ -1,0 +1,30 @@
+.header {
+    background-color: whitesmoke;
+    border-bottom: 1px double  navy;
+    color: navy;
+    width: 100vw;
+    padding: 0.5em;
+    box-sizing: border-box;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+    }
+
+    a {
+        color: navy;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    a.active  {
+        color: dodgerblue;
+        font-weight: bold;
+    }
+}
+
