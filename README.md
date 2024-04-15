@@ -23,3 +23,16 @@ Requete AJAX
 Divers
 - nanoid
 - clsx
+
+
+## Fonctionnalité du store
+
+Todo List
+- Ajouter une tache
+- Supprimer une tache
+- Change le status d'une tache
+    - Non commencer
+    - En cours
+    - Terminé
+- Editer une tache (hors status)
+- Vider la liste des taches
