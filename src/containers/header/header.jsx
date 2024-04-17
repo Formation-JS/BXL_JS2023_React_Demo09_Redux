@@ -1,9 +1,16 @@
 import { NavLink } from 'react-router-dom'
 import style from './header.module.css';
 
+const navRoutes = [
+    { title: 'Home', url: '/' },
+    { title: 'Todo', url: '/todo' },
+    { title: 'Pokemon', url: '/pokemon' },
+    { title: 'About', url: '/about' },
+];
+
 const Header = () => {
 
-    const handleNavLinkStyle = ({isActive}) => {
+    const handleNavLinkStyle = ({ isActive }) => {
         return isActive ? style.active : undefined
     };
 
@@ -11,21 +18,13 @@ const Header = () => {
         <header className={style.header}>
             <nav>
                 <ul>
-                    <li>
-                        <NavLink to='/' className={handleNavLinkStyle}>
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/todo' className={handleNavLinkStyle}>
-                            Todo
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/about' className={handleNavLinkStyle}>
-                            About
-                        </NavLink>
-                    </li>
+                    {navRoutes.map(({ title, url }) => (
+                        <li key={url}>
+                            <NavLink to={url} className={handleNavLinkStyle}>
+                                {title}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </header>
