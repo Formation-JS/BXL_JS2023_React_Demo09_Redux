@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import style from './header.module.css';
+import SearchBar from '../../components/search-bar/search-bar.jsx';
 
 const navRoutes = [
     { title: 'Home', url: '/' },
