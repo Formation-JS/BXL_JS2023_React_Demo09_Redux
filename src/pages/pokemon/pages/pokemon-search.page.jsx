@@ -1,9 +1,13 @@
+import { useDispatch } from 'react-redux';
 import SearchBar from '../../../components/search-bar/search-bar.jsx';
+import { fetchPokemonByName } from '../../../store/pokemon/pokemon.action.js';
 
 const PokemonSearchPage = () => {
 
+    const dispatch = useDispatch();
+
     const handleSearchPokemon = (pokemonName) => {
-        console.log(`Rechercher : ${pokemonName}`);
+        dispatch(fetchPokemonByName(pokemonName));
     } 
 
     return (
@@ -15,7 +19,7 @@ const PokemonSearchPage = () => {
                 onSearch={handleSearchPokemon}
             />
         </>
-    );
+    ); 
 };
 
 export default PokemonSearchPage;
