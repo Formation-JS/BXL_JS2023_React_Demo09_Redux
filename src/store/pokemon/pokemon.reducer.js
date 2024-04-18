@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { addPokemonTeam, fetchPokemonByName, removePokemonTeam } from './pokemon.action.js';
+import { addPokemonTeam, cachePokemonResult, fetchPokemonByName, removePokemonTeam } from './pokemon.action.js';
 
 const initialState = {
     search: {
@@ -23,6 +23,9 @@ const pokemonReducer = createReducer(initialState, builder => {
 
             state.search.isLoading = false;
             state.search.current = pokemonSearch;
+        })
+        .addCase(cachePokemonResult, (state, action) => {
+            state.search.cache.push(action.payload);
         })
         .addCase(fetchPokemonByName.rejected, (state, action) => {
             state.search.isLoading = false;
