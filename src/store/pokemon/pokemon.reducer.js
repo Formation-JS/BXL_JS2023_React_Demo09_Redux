@@ -16,6 +16,7 @@ const pokemonReducer = createReducer(initialState, builder => {
         .addCase(fetchPokemonByName.pending, (state, action) => {
             state.search.isLoading = true;
             state.search.current = null;
+            state.search.error = null;
         })
         .addCase(fetchPokemonByName.fulfilled, (state, action) => {
             const pokemonSearch = action.payload;

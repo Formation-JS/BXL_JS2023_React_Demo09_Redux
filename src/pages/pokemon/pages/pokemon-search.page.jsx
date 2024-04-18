@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import SearchBar from '../../../components/search-bar/search-bar.jsx';
 import { fetchPokemonByName } from '../../../store/pokemon/pokemon.action.js';
+import { useSelector } from 'react-redux';
+import PokemonShow from '../../../containers/pokemon/pokemon-show.jsx';
 
 const PokemonSearchPage = () => {
 
@@ -18,6 +20,7 @@ const PokemonSearchPage = () => {
                 btnSubmitName='Chercher'
                 onSearch={handleSearchPokemon}
             />
+            <PokemonShow />
         </>
     ); 
 };
