@@ -7,6 +7,7 @@ export const cachePokemonResult = createAction('pokemon/fetch/cache');
 export const fetchPokemonByName = createAsyncThunk(
     'pokemon/fetch',
     async (name, { getState, dispatch }) => {
+        await (new Promise(resolve => setTimeout(resolve, 1000)));
 
         const { cache } = getState().pokemon.search;
 
@@ -23,6 +24,12 @@ export const fetchPokemonByName = createAsyncThunk(
         dispatch(cachePokemonResult(data));
 
         return data;
+    },
+    {
+        condition: (name, { getState }) => {
+            const pokemon = getState().pokemon.search.current;
+            return !pokemon || pokemon.name.toLowerCase() !== name.toLowerCase();
+        }
     }
 );
 
